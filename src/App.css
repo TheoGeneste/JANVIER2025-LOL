@@ -39,3 +39,8 @@ a{
 .form-control::placeholder{
     color: #c8aa6e;
 }
+
+.card{
+    background-color: #c8aa6e;
+    color: #0a1428;
+}
