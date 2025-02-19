@@ -8,6 +8,9 @@ import ChampionDetailsPage from './Pages/ChampionsDetailsPage';
 import ItemsPage from './Pages/ItemsPage';
 import ItemDetailsPage from './Pages/ItemDetailsPage';
 import ChampionsByTagPage from './Pages/ChampionsByTagPage';
+import SummonersPage from './Pages/SummonersPage';
+import ProfileIcons from './Pages/ProfileIconsPage';
+import Game from './Pages/Game';
 
 function App() {
   return <>
@@ -20,6 +23,9 @@ function App() {
         <Route path='/champion/:name' element={<ChampionDetailsPage />}/>
         <Route path='/items' element={<ItemsPage />}/>
         <Route path='/item/:name' element={<ItemDetailsPage />}/>
+        <Route path='/summoners' element={<SummonersPage />}/>
+        <Route path='/icons' element={<ProfileIcons />}/>
+        <Route path='/game' element={<Game />}/>
       </Routes>
     </BrowserRouter>
   </>;
