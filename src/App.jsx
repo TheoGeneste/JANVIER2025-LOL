@@ -7,6 +7,7 @@ import ChampionsPage from './Pages/ChampionsPage';
 import ChampionDetailsPage from './Pages/ChampionsDetailsPage';
 import ItemsPage from './Pages/ItemsPage';
 import ItemDetailsPage from './Pages/ItemDetailsPage';
+import ChampionsByTagPage from './Pages/ChampionsByTagPage';
 
 function App() {
   return <>
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path='/' element={<HomePage />}/>
         <Route path='/champions' element={<ChampionsPage />}/>
+        <Route path='/champions/:tag' element={<ChampionsByTagPage />}/>
         <Route path='/champion/:name' element={<ChampionDetailsPage />}/>
         <Route path='/items' element={<ItemsPage />}/>
         <Route path='/item/:name' element={<ItemDetailsPage />}/>

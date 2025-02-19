@@ -1,9 +1,36 @@
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import logo from "../assets/logo-lol.webp";
+import ChampionService from "../Services/ChampionService";
+import { useEffect, useState } from "react";
 
 const NavBar = () => {
     const navigate = useNavigate();
+    const [tags, setTags] = useState([]);
+
+    const fetchChampions = async () => {
+      try {
+        const response = await ChampionService.fetchChampions();
+        console.log(response.data.data);
+        let tagsTab = [];
+        Object.entries(response.data.data).map(([key, value]) => {
+          console.log(value.tags);
+          value.tags.map(tag => {
+            if (tagsTab.includes(tag) == false) {
+              tagsTab.push(tag);
+            }
+          });
+        });
+
+        setTags(tagsTab);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    useEffect(() => {
+      fetchChampions();
+    }, [])
 
     return <>
      <Navbar expand="lg"  style={{height: "10vh"}}>
@@ -16,17 +43,11 @@ const NavBar = () => {
           <Nav className="me-auto">
             <Nav.Link onClick={() => {navigate("/champions")}}>Champions</Nav.Link>
             <Nav.Link onClick={() => {navigate("/items")}}>Items</Nav.Link>
-            {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown> */}
+            <NavDropdown title="Types" id="basic-nav-dropdown">
+              {tags.map((tag, index) => {
+                return <NavDropdown.Item key={index} onClick={() => {navigate(`/champions/${tag}`)}}>{tag}</NavDropdown.Item>
+              })}
+            </NavDropdown>
           </Nav>
         </Navbar.Collapse>
       </Container>
