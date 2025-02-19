@@ -44,3 +44,11 @@ a{
     background-color: #c8aa6e;
     color: #0a1428;
 }
+.canvasjs-chart-credit{
+    display: none !important;
+}
+
+.tag{
+    color: #0a1428!important;
+    background-color: #c8aa6e !important;
+}
