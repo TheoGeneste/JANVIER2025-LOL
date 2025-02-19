@@ -56,7 +56,7 @@ const ChampionDetailsPage = () => {
 
     return <Container fluid className="d-flex flex-column align-items-center">
         <div style={{ position: "relative", width: "100vw" }}>
-            <img style={{ position: "relative", top: 0, left: 0, width: "100vw", height: "90vh" }} src={"https://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + name + "_0.jpg"} alt="" />
+            <img style={{objectPosition: "center 0%", objectFit: "cover",position: "relative", top: 0, left: 0, width: "100vw", height: "90vh" }} src={"https://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + name + "_0.jpg"} alt="" />
             <h2 style={{ position: "absolute", fontSize: "4rem", top: "13vh", left: "10vw" }}>{champion.name}</h2>
             <div style={{ position: "absolute", fontSize: "3rem", top: "20vh", left: "10vw" }}>{champion.title}</div>
             <div style={{ position: "absolute", fontSize: "2rem", top: "30vh", left: "10vw", width: "50vw", color: "white", textAlign: "justify" }}>{champion.lore}</div>

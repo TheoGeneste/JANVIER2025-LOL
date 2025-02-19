@@ -6,6 +6,7 @@ import NavBar from './Components/NavBar';
 import ChampionsPage from './Pages/ChampionsPage';
 import ChampionDetailsPage from './Pages/ChampionsDetailsPage';
 import ItemsPage from './Pages/ItemsPage';
+import ItemDetailsPage from './Pages/ItemDetailsPage';
 
 function App() {
   return <>
@@ -16,6 +17,7 @@ function App() {
         <Route path='/champions' element={<ChampionsPage />}/>
         <Route path='/champion/:name' element={<ChampionDetailsPage />}/>
         <Route path='/items' element={<ItemsPage />}/>
+        <Route path='/item/:name' element={<ItemDetailsPage />}/>
       </Routes>
     </BrowserRouter>
   </>;
